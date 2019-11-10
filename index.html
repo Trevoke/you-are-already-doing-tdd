@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title></title>
+<meta name="author" content="(Aldric Giacomoni)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js-3.8.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js-3.8.0/css/theme/solarized.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js-3.8.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<section>
+<section id="slide-orgab7d5d2">
+<h2 id="orgab7d5d2">You're already doing TDD</h2>
+</section>
+</section>
+<section>
+<section id="slide-orgf9d7990">
+<h2 id="orgf9d7990">Decision-making</h2>
+</section>
+</section>
+<section>
+<section id="slide-org55367a1">
+<h2 id="org55367a1">Make better decisions</h2>
+</section>
+</section>
+<section>
+<section id="slide-org8703d3f">
+<h2 id="org8703d3f">Big decisions are combinations of small decisions</h2>
+</section>
+</section>
+<section>
+<section id="slide-org5d71235">
+<h2 id="org5d71235">Fermi questions</h2>
+</section>
+</section>
+<section>
+<section id="slide-org6fab51d">
+<h2 id="org6fab51d">How many piano tuners are there in Chicago?</h2>
+</section>
+</section>
+<section>
+<section id="slide-orgef2d936">
+<h2 id="orgef2d936">Decompose</h2>
+<ul>
+<li>how many pianos?</li>
+<li># pianos per tuner per day?</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org0ef4cd5">
+<h2 id="org0ef4cd5">How many pianos?</h2>
+<p>
+how many people in Chicago?
+how many people per household?
+how many households have a piano that's regularly tuned?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org905dfe8">
+<h2 id="org905dfe8">how many pianos per tuner per day?</h2>
+<p>
+how many hours per tuning?
+how many hours per tuner?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org0be3c9f">
+<h2 id="org0be3c9f">plug in some numbers</h2>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">variable</th>
+<th scope="col" class="org-left">value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">population</td>
+<td class="org-left">9M</td>
+</tr>
+
+<tr>
+<td class="org-left">people / household</td>
+<td class="org-left">2</td>
+</tr>
+
+<tr>
+<td class="org-left">houses w/ piano</td>
+<td class="org-left">20</td>
+</tr>
+
+<tr>
+<td class="org-left">hours per tuning</td>
+<td class="org-left">2</td>
+</tr>
+
+<tr>
+<td class="org-left">hours per tuner</td>
+<td class="org-left">50 * 5 * 8</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js-3.8.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: './reveal.js-3.8.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: './reveal.js-3.8.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js-3.8.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js-3.8.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js-3.8.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>

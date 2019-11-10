@@ -1,0 +1,33 @@
+#+OPTIONS:     H:3 num:nil toc:nil \n:nil ::t |:t ^:nil -:nil f:t *:t <:t reveal_title_slide:nil reveal_global_footer:f
+#+REVEAL_HIGHLIGHT_CSS: solarized
+#+REVEAL_THEME: solarized
+#+REVEAL_ROOT: ./reveal.js-3.8.0
+
+* You're already doing TDD
+* Decision-making
+* Make better decisions
+* Big decisions are combinations of small decisions
+* Fermi questions
+* How many piano tuners are there in Chicago?
+* Decompose
+- how many pianos?
+- # pianos per tuner per day?
+* How many pianos?
+how many people in Chicago?
+how many people per household?
+how many households have a piano that's regularly tuned?
+* how many pianos per tuner per day?
+how many hours per tuning?
+how many hours per tuner?
+* plug in some numbers
+| variable             |      value |
+|----------------------+------------|
+| population           |         9M |
+| people per household |          2 |
+| houses w/ piano      |         20 |
+| hours per tuning     |          2 |
+| hours per tuner      | 50 * 5 * 8 |
+* add some operators
+9000000 / 2 / 20 / (50 * 5 * 8 / 2)
+
+225
