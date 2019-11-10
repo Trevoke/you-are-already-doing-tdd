@@ -28,113 +28,150 @@
 <div class="slides">
 
 <section>
-<section id="slide-orgab7d5d2">
-<h2 id="orgab7d5d2">You're already doing TDD</h2>
+<section id="slide-org74d9898">
+<h2 id="org74d9898">You're already doing TDD</h2>
 </section>
 </section>
 <section>
-<section id="slide-orgf9d7990">
-<h2 id="orgf9d7990">Decision-making</h2>
+<section id="slide-org0d24256">
+<h2 id="org0d24256">Decision-making</h2>
 </section>
 </section>
 <section>
-<section id="slide-org55367a1">
-<h2 id="org55367a1">Make better decisions</h2>
+<section id="slide-orgb31ef0e">
+<h2 id="orgb31ef0e">Make better decisions</h2>
+<div class="outline-text-2" id="text-orgb31ef0e">
+</div>
+</section>
+<section id="slide-orge97fc03">
+<h3 id="orge97fc03">Years ago I wrote this</h3>
+<div class="org-src-container">
+
+<pre  class="src src-ruby"><code trim><span style="color: #3a5ca6;">def</span> <span style="color: #f2650d;">same_modality?</span>(documents)&#57344;&#57345;&#57345;
+  modalities = []&#57344;&#57345;&#57345;
+  documents.each <span style="color: #3a5ca6;">do</span> |document|&#57344;&#57345;&#57345;
+    <span style="color: #3a5ca6;">unless</span> modalities.include?(document.modality)&#57344;&#57345;&#57345;
+      modalities &lt;&lt; document.modality&#57344;&#57345;&#57345;
+    <span style="color: #3a5ca6;">end</span>&#57344;&#57345;&#57345;
+  <span style="color: #3a5ca6;">end</span>&#57344;&#57345;&#57345;
+  modalities.size == 1&#57344;&#57345;&#57345;
+<span style="color: #3a5ca6;">end</span>
+</code></pre>
+</div>
+</section>
+<section id="slide-orgb21f872">
+<h3 id="orgb21f872">A year and a half later, I changed it to this</h3>
+<div class="org-src-container">
+
+<pre  class="src src-ruby"><code trim>documents.map(&amp;<span style="color: #074e8d;">:modality</span>).uniq.size == 1
+</code></pre>
+</div>
 </section>
 </section>
 <section>
-<section id="slide-org8703d3f">
-<h2 id="org8703d3f">Big decisions are combinations of small decisions</h2>
+<section id="slide-orgcbebd7f">
+<h2 id="orgcbebd7f">Big decisions are combinations of small decisions</h2>
 </section>
 </section>
 <section>
-<section id="slide-org5d71235">
-<h2 id="org5d71235">Fermi questions</h2>
+<section id="slide-org46520b8">
+<h2 id="org46520b8">Fermi questions</h2>
+<div class="outline-text-2" id="text-org46520b8">
+</div>
 </section>
+<section id="slide-orgb3d8c00">
+<h3 id="orgb3d8c00">How many piano tuners are there in Chicago?</h3>
 </section>
-<section>
-<section id="slide-org6fab51d">
-<h2 id="org6fab51d">How many piano tuners are there in Chicago?</h2>
-</section>
-</section>
-<section>
-<section id="slide-orgef2d936">
-<h2 id="orgef2d936">Decompose</h2>
+<section id="slide-org3066800">
+<h3 id="org3066800">Decompose</h3>
 <ul>
 <li>how many pianos?</li>
 <li># pianos per tuner per day?</li>
 
 </ul>
 </section>
+<section id="slide-orgd10d4f8">
+<h3 id="orgd10d4f8">How many pianos?</h3>
+<ul>
+<li>how many people in Chicago?</li>
+<li>how many people per household?</li>
+<li>how many households have a piano that's regularly tuned?</li>
+
+</ul>
 </section>
-<section>
-<section id="slide-org0ef4cd5">
-<h2 id="org0ef4cd5">How many pianos?</h2>
-<p>
-how many people in Chicago?
-how many people per household?
-how many households have a piano that's regularly tuned?
-</p>
+<section id="slide-orgd8b1dc5">
+<h3 id="orgd8b1dc5">how many pianos per tuner per day?</h3>
+<ul>
+<li>how many hours per tuning?</li>
+<li>how many hours per tuner?</li>
+
+</ul>
 </section>
-</section>
-<section>
-<section id="slide-org905dfe8">
-<h2 id="org905dfe8">how many pianos per tuner per day?</h2>
-<p>
-how many hours per tuning?
-how many hours per tuner?
-</p>
-</section>
-</section>
-<section>
-<section id="slide-org0be3c9f">
-<h2 id="org0be3c9f">plug in some numbers</h2>
+<section id="slide-orgb43bda3">
+<h3 id="orgb43bda3">plug in some numbers</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
 <col  class="org-left" />
 
-<col  class="org-left" />
+<col  class="org-right" />
 </colgroup>
 <thead>
 <tr>
 <th scope="col" class="org-left">variable</th>
-<th scope="col" class="org-left">value</th>
+<th scope="col" class="org-right">value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="org-left">population</td>
-<td class="org-left">9M</td>
+<td class="org-right">9M</td>
 </tr>
 
 <tr>
-<td class="org-left">people / household</td>
-<td class="org-left">2</td>
+<td class="org-left">people per household</td>
+<td class="org-right">2</td>
 </tr>
 
 <tr>
 <td class="org-left">houses w/ piano</td>
-<td class="org-left">20</td>
+<td class="org-right">20</td>
 </tr>
 
 <tr>
 <td class="org-left">hours per tuning</td>
-<td class="org-left">2</td>
+<td class="org-right">2</td>
 </tr>
 
 <tr>
 <td class="org-left">hours per tuner</td>
-<td class="org-left">50 * 5 * 8</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-right">50 * 5 * 8</td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="slide-org7fd0362">
+<h3 id="org7fd0362">add some operators</h3>
+<p>
+9000000 / 2 / 20 / (50 * 5 * 8 / 2)
+</p>
+
+</section>
+<section id="slide-orga7c56a0">
+<h3 id="orga7c56a0">Boom</h3>
+<p>
+225
+</p>
+</section>
+<section id="slide-org20a23fa">
+<h3 id="org20a23fa">Decompose</h3>
+<p>
+A big problem is a combination of small problems
+</p>
+<p>
+*
+</p>
 </section>
 </section>
 </div>

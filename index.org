@@ -6,20 +6,42 @@
 * You're already doing TDD
 * Decision-making
 * Make better decisions
+** Years ago I wrote this
+#+begin_src ruby
+  def same_modality?(documents)
+    modalities = []
+    documents.each do |document|
+      unless modalities.include?(document.modality)
+        modalities << document.modality
+      end
+    end
+    modalities.size == 1
+  end
+#+end_src
+** A year and a half later, I changed it to this
+#+begin_src ruby
+  documents.map(&:modality).uniq.size == 1
+#+end_src
+#+begin_notes
+Knowing the tools at hand allowed me to recognize the problem as one that an existing tool solved
+#+end_notes
 * Big decisions are combinations of small decisions
 * Fermi questions
-* How many piano tuners are there in Chicago?
-* Decompose
+#+begin_notes
+Fermi was present when the first atomic bomb was detonated. He let a few pieces of paper fall and, based on how far they traveled, estimated the force of the blast.
+#+end_notes
+** How many piano tuners are there in Chicago?
+** Decompose
 - how many pianos?
 - # pianos per tuner per day?
-* How many pianos?
-how many people in Chicago?
-how many people per household?
-how many households have a piano that's regularly tuned?
-* how many pianos per tuner per day?
-how many hours per tuning?
-how many hours per tuner?
-* plug in some numbers
+** How many pianos?
+- how many people in Chicago?
+- how many people per household?
+- how many households have a piano that's regularly tuned?
+** how many pianos per tuner per day?
+- how many hours per tuning?
+- how many hours per tuner?
+** plug in some numbers
 | variable             |      value |
 |----------------------+------------|
 | population           |         9M |
@@ -27,7 +49,11 @@ how many hours per tuner?
 | houses w/ piano      |         20 |
 | hours per tuning     |          2 |
 | hours per tuner      | 50 * 5 * 8 |
-* add some operators
+** add some operators
 9000000 / 2 / 20 / (50 * 5 * 8 / 2)
 
+** Boom
 225
+** Decompose
+A big problem is a combination of small problems
+* -
