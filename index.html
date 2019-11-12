@@ -28,70 +28,98 @@
 <div class="slides">
 
 <section>
-<section id="slide-org74d9898">
-<h2 id="org74d9898">You're already doing TDD</h2>
+<section id="slide-orgda7c11e">
+<h2 id="orgda7c11e">You're already doing TDD</h2>
 </section>
 </section>
 <section>
-<section id="slide-org0d24256">
-<h2 id="org0d24256">Decision-making</h2>
+<section id="slide-orge3129bf">
+<h2 id="orge3129bf">Decision-making</h2>
 </section>
 </section>
 <section>
-<section id="slide-orgb31ef0e">
-<h2 id="orgb31ef0e">Make better decisions</h2>
-<div class="outline-text-2" id="text-orgb31ef0e">
+<section id="slide-org4febd57">
+<h2 id="org4febd57">Make better decisions</h2>
+<div class="outline-text-2" id="text-org4febd57">
 </div>
 </section>
-<section id="slide-orge97fc03">
-<h3 id="orge97fc03">Years ago I wrote this</h3>
+<section id="slide-org5226665">
+<h3 id="org5226665">Years ago I wrote this</h3>
 <div class="org-src-container">
 
-<pre  class="src src-ruby"><code trim><span style="color: #3a5ca6;">def</span> <span style="color: #f2650d;">same_modality?</span>(documents)&#57344;&#57345;&#57345;
+<pre  class="src src-ruby"><code trim><span style="color: #597bc5;">def</span> <span style="color: #f9cf80;">same_modality?</span>(documents)&#57344;&#57345;&#57345;
   modalities = []&#57344;&#57345;&#57345;
-  documents.each <span style="color: #3a5ca6;">do</span> |document|&#57344;&#57345;&#57345;
-    <span style="color: #3a5ca6;">unless</span> modalities.include?(document.modality)&#57344;&#57345;&#57345;
+  documents.each <span style="color: #597bc5;">do</span> |document|&#57344;&#57345;&#57345;
+    <span style="color: #597bc5;">unless</span> modalities.include?(document.modality)&#57344;&#57345;&#57345;
       modalities &lt;&lt; document.modality&#57344;&#57345;&#57345;
-    <span style="color: #3a5ca6;">end</span>&#57344;&#57345;&#57345;
-  <span style="color: #3a5ca6;">end</span>&#57344;&#57345;&#57345;
+    <span style="color: #597bc5;">end</span>&#57344;&#57345;&#57345;
+  <span style="color: #597bc5;">end</span>&#57344;&#57345;&#57345;
   modalities.size == 1&#57344;&#57345;&#57345;
-<span style="color: #3a5ca6;">end</span>
+<span style="color: #597bc5;">end</span>
 </code></pre>
 </div>
 </section>
-<section id="slide-orgb21f872">
-<h3 id="orgb21f872">A year and a half later, I changed it to this</h3>
+<section id="slide-orgb955970">
+<h3 id="orgb955970">A year and a half later, I changed it to this</h3>
 <div class="org-src-container">
 
-<pre  class="src src-ruby"><code trim>documents.map(&amp;<span style="color: #074e8d;">:modality</span>).uniq.size == 1
+<pre  class="src src-ruby"><code trim>documents.map(&amp;<span style="color: #71b9f8;">:modality</span>).uniq.size == 1
 </code></pre>
 </div>
+<aside class="notes">
+<p>
+Knowing the tools at hand allowed me to recognize the problem as one that an existing tool solved
+</p>
+
+</aside>
 </section>
 </section>
 <section>
-<section id="slide-orgcbebd7f">
-<h2 id="orgcbebd7f">Big decisions are combinations of small decisions</h2>
+<section id="slide-org81cb49c">
+<h2 id="org81cb49c">Big decisions are combinations of small decisions</h2>
 </section>
 </section>
 <section>
-<section id="slide-org46520b8">
-<h2 id="org46520b8">Fermi questions</h2>
-<div class="outline-text-2" id="text-org46520b8">
-</div>
+<section id="slide-org637f52e">
+<h2 id="org637f52e">Cartesian method</h2>
+<ol>
+<li>Accept as true only what is indubitable.</li>
+<li>Divide every question into manageable parts.</li>
+<li>Begin with the simplest issues and ascend to the more complex.</li>
+<li>Review frequently enough to retain the whole argument at once.</li>
+
+</ol>
+<aside class="notes">
+<p>
+His reductive method also impoverished these domains in important ways, for it tended to restrict geometry to the study of straight line segments, physics to the study of ambiguously constituted bits of matter in motion,
+</p>
+
+</aside>
 </section>
-<section id="slide-orgb3d8c00">
-<h3 id="orgb3d8c00">How many piano tuners are there in Chicago?</h3>
 </section>
-<section id="slide-org3066800">
-<h3 id="org3066800">Decompose</h3>
+<section>
+<section id="slide-org1752871">
+<h2 id="org1752871">Fermi questions</h2>
+<aside class="notes">
+<p>
+Fermi was present when the first atomic bomb was detonated. He let a few pieces of paper fall and, based on how far they traveled, estimated the force of the blast.
+</p>
+
+</aside>
+</section>
+<section id="slide-orgd558334">
+<h3 id="orgd558334">How many piano tuners are there in Chicago?</h3>
+</section>
+<section id="slide-org5aadb73">
+<h3 id="org5aadb73">Decompose</h3>
 <ul>
 <li>how many pianos?</li>
 <li># pianos per tuner per day?</li>
 
 </ul>
 </section>
-<section id="slide-orgd10d4f8">
-<h3 id="orgd10d4f8">How many pianos?</h3>
+<section id="slide-org06b77c1">
+<h3 id="org06b77c1">How many pianos?</h3>
 <ul>
 <li>how many people in Chicago?</li>
 <li>how many people per household?</li>
@@ -99,16 +127,16 @@
 
 </ul>
 </section>
-<section id="slide-orgd8b1dc5">
-<h3 id="orgd8b1dc5">how many pianos per tuner per day?</h3>
+<section id="slide-org215b72d">
+<h3 id="org215b72d">how many pianos per tuner per day?</h3>
 <ul>
 <li>how many hours per tuning?</li>
 <li>how many hours per tuner?</li>
 
 </ul>
 </section>
-<section id="slide-orgb43bda3">
-<h3 id="orgb43bda3">plug in some numbers</h3>
+<section id="slide-org0b73412">
+<h3 id="org0b73412">plug in some numbers</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -151,27 +179,29 @@
 </tbody>
 </table>
 </section>
-<section id="slide-org7fd0362">
-<h3 id="org7fd0362">add some operators</h3>
+<section id="slide-org9ec9523">
+<h3 id="org9ec9523">add some operators</h3>
 <p>
 9000000 / 2 / 20 / (50 * 5 * 8 / 2)
 </p>
 
 </section>
-<section id="slide-orga7c56a0">
-<h3 id="orga7c56a0">Boom</h3>
+<section id="slide-orgc1bccd4">
+<h3 id="orgc1bccd4">Boom</h3>
 <p>
 225
 </p>
 </section>
-<section id="slide-org20a23fa">
-<h3 id="org20a23fa">Decompose</h3>
+<section id="slide-orgc867ba3">
+<h3 id="orgc867ba3">Decompose</h3>
 <p>
 A big problem is a combination of small problems
 </p>
-<p>
-*
-</p>
+</section>
+</section>
+<section>
+<section id="slide-orgdda47e0">
+<h2 id="orgdda47e0">-</h2>
 </section>
 </section>
 </div>

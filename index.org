@@ -26,6 +26,14 @@
 Knowing the tools at hand allowed me to recognize the problem as one that an existing tool solved
 #+end_notes
 * Big decisions are combinations of small decisions
+* Cartesian method
+1. Accept as true only what is indubitable.
+2. Divide every question into manageable parts.
+3. Begin with the simplest issues and ascend to the more complex.
+4. Review frequently enough to retain the whole argument at once.
+#+begin_notes
+His reductive method also impoverished these domains in important ways, for it tended to restrict geometry to the study of straight line segments, physics to the study of ambiguously constituted bits of matter in motion,
+#+end_notes
 * Fermi questions
 #+begin_notes
 Fermi was present when the first atomic bomb was detonated. He let a few pieces of paper fall and, based on how far they traveled, estimated the force of the blast.
