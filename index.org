@@ -4,10 +4,9 @@
 #+REVEAL_ROOT: ./reveal.js-3.8.0
 
 * You're already doing TDD
-Test-Driven Development
 
 #+begin_notes
-Let me tell you about Test-Driven Design
+I swear. Let's explore this.
 #+end_notes
 * Decision-making
 #+begin_notes
@@ -18,20 +17,28 @@ Decisions of what code to write and what code not to write
 Decisions of how to write the code
 #+end_notes
 * Big decisions are combinations of small decisions
+What meal should Ι eat?
+
+#+begin_notes
+- how do I feel
+- how much food
+- fries or ice cream or both?
+#+end_notes
 * Don't take my word for it
 - Descartes
 - Fermi
 
 #+begin_notes
-Descartes said "I think therefore I am" and he made, you know, cartesian coordinates?
+Rene Descartes said "I think therefore I am" and basically created western science as we know it - more on the next slide.
 
-Fermi was the creator of the world's first nuclear reactor
+Enrico Fermi a physicist was the creator of the world's first nuclear reactor
 #+end_notes
 * Cartesian method
 1. Accept as true only what is indubitable.
 2. Divide every question into manageable parts.
 3. Begin with the simplest issues and ascend to the more complex.
 4. Review frequently enough to retain the whole argument at once.
+
 #+begin_notes
 Descartes made significant strides in mathematics, and physics by relating certain complex items and problems back to more simple elements that served as starting points for his inquiries.
 
@@ -44,7 +51,7 @@ Fermi was present when the first atomic bomb was detonated. He let a few pieces 
 
 Fermi's estimate of 10 kilotons of TNT was well within an order of magnitude of the now-accepted value of 21 kilotons.
 
-These were and may still be used in the Google interview process.
+These questions were and may still be used in the Google interview process.
 #+end_notes
 ** How many piano tuners are there in Chicago?
 #+begin_notes
@@ -94,11 +101,15 @@ A big problem is a combination of small problems
 decomposition is called *factoring*
 #+begin_notes
 I learned this while preparing this talk.
+
+And I came to the following realization
 #+end_notes
 * Refactoring
 Yep. re-factoring.
 #+begin_notes
 So when you change the bits of the system, you change the way it's decomposed!
+
+Alright, alright, enough preamble.
 #+end_notes
 * Okay okay, TDD
 Real talk now (wake up your neighbor)
@@ -109,19 +120,37 @@ Real talk now (wake up your neighbor)
 4. Continue
 
 #+begin_notes
-we can do better than this
+I hate this description
+#+end_notes
+* So why are you already doing TDD?
+- break down problem into smaller parts
+- implement bits of it
+- connect the implemented bits
+- profit
+
+#+begin_notes
+This looks like the Cartesian method to me.
+
+I mean, that's basically how everything works, right?
 #+end_notes
 * Steps of Test-Driven Design
 1. Define non-existent behavior
 2. Write test
-3. Consider how much you like the code you just wrote
+3. Marie-Kondo the code you just wrote
 4. Think of how it will fail
 5. Run it, verify your hypothesis
 6. Implement just enough to make it pass
 7. Refactor as desired
-8. Loop until the whole world is green
 #+begin_notes
-here we enrich the steps by providing ourselves with sanity checks that we make sure we know how the system works -- like Descartes suggested
+here we enrich the steps like Descartes suggested
+
+We have a step to see how much we like the API for the implementation we want to write, we can check things like single responsibility principle, law of demeter, etc.
+
+In that step, step 3, you can throw away the code you wrote if you don't like it and write the test differently. That's a quick way to explore a new factoring (decomposition) of the code.
+
+We have a step to check that we understand the system as it is
+
+We have a step to check that we understand the system as it grows
 #+end_notes
 * Connecting the dots
 1. set our goal
@@ -134,13 +163,23 @@ here we enrich the steps by providing ourselves with sanity checks that we make 
 ** decompose & choose simplest issue
 1. Write a failing test for a small part of the feature
 ** review frequently enough to retain the whole argument
+1. Verify that you know how it will fail
 2. Make it pass
 3. Optionally, refactor
 #+begin_notes
 and we continue doing this until the top-level test passes
 #+end_notes
 ** And on and on we go
+#+begin_notes
+where it stops, nobody knows
+#+end_notes
 * Decompose the problem, think about the implementation
+You have to be able to refactor the implementation under test
+#+begin_notes
+This is a fair warning and is the ... artful? part of TDD.
+
+You end up learning the right level of granularity for test, this is the best guiding principle I've come up with
+#+end_notes
 ** Desired behavior
 #+begin_src ruby
   def test_same_modality
@@ -168,10 +207,13 @@ and we continue doing this until the top-level test passes
 #+end_src
 #+begin_notes
 Knowing the tools at hand allowed me to recognize the problem as one that an existing tool solved
+
+In this case the test actually became obsolete because it was no longer worth testing for me, so I deleted the method, the test, and refactored a bunch of code around this. It was glorious.
 #+end_notes
 * Conclusion
 Descartes invented TDD
 #+REVEAL_HTML: <img class="stretch" src="descartes.jpg">
+
 * Resources
 - exercism (lightweight: tests already exist)
 - [[http://ruby-challenge.rubylearning.com/][ruby learning]]
