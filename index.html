@@ -28,60 +28,68 @@
 <div class="slides">
 
 <section>
-<section id="slide-org7ac26e5">
-<h2 id="org7ac26e5">You're already doing TDD</h2>
-</section>
-</section>
-<section>
-<section id="slide-orgbb81c82">
-<h2 id="orgbb81c82">Decision-making</h2>
-</section>
-</section>
-<section>
-<section id="slide-org711ac52">
-<h2 id="org711ac52">Make better decisions</h2>
-<div class="outline-text-2" id="text-org711ac52">
-</div>
-</section>
-<section id="slide-org82388eb">
-<h3 id="org82388eb">Years ago I wrote this</h3>
-<div class="org-src-container">
+<section id="slide-orge33a30e">
+<h2 id="orge33a30e">You're already doing TDD</h2>
+<p>
+Test-Driven Development
+</p>
 
-<pre  class="src src-ruby"><code trim><span style="color: #597bc5;">def</span> <span style="color: #f9cf80;">same_modality?</span>(documents)&#57344;&#57345;&#57345;
-  modalities = []&#57344;&#57345;&#57345;
-  documents.each <span style="color: #597bc5;">do</span> |document|&#57344;&#57345;&#57345;
-    <span style="color: #597bc5;">unless</span> modalities.include?(document.modality)&#57344;&#57345;&#57345;
-      modalities &lt;&lt; document.modality&#57344;&#57345;&#57345;
-    <span style="color: #597bc5;">end</span>&#57344;&#57345;&#57345;
-  <span style="color: #597bc5;">end</span>&#57344;&#57345;&#57345;
-  modalities.size == 1&#57344;&#57345;&#57345;
-<span style="color: #597bc5;">end</span>
-</code></pre>
-</div>
-</section>
-<section id="slide-org2244893">
-<h3 id="org2244893">A year and a half later, I changed it to this</h3>
-<div class="org-src-container">
-
-<pre  class="src src-ruby"><code trim>documents.map(&amp;<span style="color: #71b9f8;">:modality</span>).uniq.size == 1
-</code></pre>
-</div>
 <aside class="notes">
 <p>
-Knowing the tools at hand allowed me to recognize the problem as one that an existing tool solved
+Let me tell you about Test-Driven Design
 </p>
 
 </aside>
 </section>
 </section>
 <section>
-<section id="slide-org4ed221a">
-<h2 id="org4ed221a">Big decisions are combinations of small decisions</h2>
+<section id="slide-org937077e">
+<h2 id="org937077e">Decision-making</h2>
+<aside class="notes">
+<p>
+As programmers, our job is to make a lot of decisions.
+</p>
+
+<p>
+Decisions of what code to write and what code not to write
+</p>
+
+<p>
+Decisions of how to write the code
+</p>
+
+</aside>
 </section>
 </section>
 <section>
-<section id="slide-org860e73c">
-<h2 id="org860e73c">Cartesian method</h2>
+<section id="slide-orgc433447">
+<h2 id="orgc433447">Big decisions are combinations of small decisions</h2>
+</section>
+</section>
+<section>
+<section id="slide-org70a8bc5">
+<h2 id="org70a8bc5">Don't take my word for it</h2>
+<ul>
+<li>Descartes</li>
+<li>Fermi</li>
+
+</ul>
+
+<aside class="notes">
+<p>
+Descartes said "I think therefore I am" and he made, you know, cartesian coordinates?
+</p>
+
+<p>
+Fermi was the creator of the world's first nuclear reactor
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-org58affb3">
+<h2 id="org58affb3">Cartesian method</h2>
 <ol>
 <li>Accept as true only what is indubitable.</li>
 <li>Divide every question into manageable parts.</li>
@@ -91,15 +99,19 @@ Knowing the tools at hand allowed me to recognize the problem as one that an exi
 </ol>
 <aside class="notes">
 <p>
-His reductive method also impoverished these domains in important ways, for it tended to restrict geometry to the study of straight line segments, physics to the study of ambiguously constituted bits of matter in motion,
+Descartes made significant strides in mathematics, and physics by relating certain complex items and problems back to more simple elements that served as starting points for his inquiries.
+</p>
+
+<p>
+His reductive method also impoverished these domains in important ways, for it tended to restrict geometry to the study of straight line segments, and physics to the study of ambiguously constituted bits of matter in motion,
 </p>
 
 </aside>
 </section>
 </section>
 <section>
-<section id="slide-org13087bc">
-<h2 id="org13087bc">Fermi questions</h2>
+<section id="slide-orgba6f008">
+<h2 id="orgba6f008">Fermi questions</h2>
 <p>
 break a big measurement into smaller estimatable measurements
 </p>
@@ -118,8 +130,8 @@ These were and may still be used in the Google interview process.
 
 </aside>
 </section>
-<section id="slide-org118dfb3">
-<h3 id="org118dfb3">How many piano tuners are there in Chicago?</h3>
+<section id="slide-org14319de">
+<h3 id="org14319de">How many piano tuners are there in Chicago?</h3>
 <aside class="notes">
 <p>
 Straight from Wikipedia
@@ -127,8 +139,8 @@ Straight from Wikipedia
 
 </aside>
 </section>
-<section id="slide-org386720f">
-<h3 id="org386720f">Decompose</h3>
+<section id="slide-org367ff0c">
+<h3 id="org367ff0c">Decompose</h3>
 <p>
 Number of pianos divided by number of tunings in a year
 </p>
@@ -139,8 +151,8 @@ Number of pianos divided by number of tunings in a year
 
 </ul>
 </section>
-<section id="slide-orgc0e350a">
-<h3 id="orgc0e350a">How many pianos?</h3>
+<section id="slide-org5511f5f">
+<h3 id="org5511f5f">How many pianos?</h3>
 <ul>
 <li># people in Chicago?</li>
 <li># people per household?</li>
@@ -148,16 +160,16 @@ Number of pianos divided by number of tunings in a year
 
 </ul>
 </section>
-<section id="slide-org0714592">
-<h3 id="org0714592">how many pianos per tuner per day?</h3>
+<section id="slide-org1819132">
+<h3 id="org1819132">how many pianos per tuner per day?</h3>
 <ul>
 <li># hours per tuning?</li>
 <li># hours per tuner?</li>
 
 </ul>
 </section>
-<section id="slide-org3a9d0cd">
-<h3 id="org3a9d0cd">plug in some numbers</h3>
+<section id="slide-org947094b">
+<h3 id="org947094b">plug in some numbers</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -207,8 +219,8 @@ Number of pianos divided by number of tunings in a year
 
 </aside>
 </section>
-<section id="slide-org229e61f">
-<h3 id="org229e61f">mix it all up</h3>
+<section id="slide-orgda73e4f">
+<h3 id="orgda73e4f">mix it all up</h3>
 <p>
 Number of pianos divided by number of tunings in a year
 </p>
@@ -217,8 +229,8 @@ Number of pianos divided by number of tunings in a year
 9000000 / 2 / 20 / (50 * 5 * 8 / 2)
 </p>
 </section>
-<section id="slide-org80c5bf0">
-<h3 id="org80c5bf0">Boom</h3>
+<section id="slide-orgfe3a833">
+<h3 id="orgfe3a833">Boom</h3>
 <p>
 225
 </p>
@@ -229,16 +241,261 @@ In 2009, the actual number of piano tuners in Chicago is about 290
 
 </aside>
 </section>
-<section id="slide-org3b3bc0a">
-<h3 id="org3b3bc0a">Decompose</h3>
+</section>
+<section>
+<section id="slide-org5b4a0e9">
+<h2 id="org5b4a0e9">Decomposing</h2>
+<p>
+Good enough for Descartes
+</p>
+
+<p>
+Good enough for Fermi
+</p>
+<aside class="notes">
 <p>
 A big problem is a combination of small problems
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-org5ca6c09">
+<h2 id="org5ca6c09">In programming</h2>
+<p>
+decomposition is called <b>factoring</b>
+</p>
+<aside class="notes">
+<p>
+I learned this while preparing this talk.
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-org165da2e">
+<h2 id="org165da2e">Refactoring</h2>
+<p>
+Yep. re-factoring.
+</p>
+<aside class="notes">
+<p>
+So when you change the bits of the system, you change the way it's decomposed!
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-org0da1591">
+<h2 id="org0da1591">Okay okay, TDD</h2>
+<p>
+Real talk now (wake up your neighbor)
 </p>
 </section>
 </section>
 <section>
-<section id="slide-org0d1a6a3">
-<h2 id="org0d1a6a3">-</h2>
+<section id="slide-org2c76b6d">
+<h2 id="org2c76b6d">Usual steps of TDD</h2>
+<ol>
+<li>Write a failing test</li>
+<li>Make it pass</li>
+<li>Refactor</li>
+<li>Continue</li>
+
+</ol>
+
+<aside class="notes">
+<p>
+we can do better than this
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-org1589ce1">
+<h2 id="org1589ce1">Steps of Test-Driven Design</h2>
+<ol>
+<li>Define non-existent behavior</li>
+<li>Write test</li>
+<li>Consider how much you like the code you just wrote</li>
+<li>Think of how it will fail</li>
+<li>Run it, verify your hypothesis</li>
+<li>Implement just enough to make it pass</li>
+<li>Refactor as desired</li>
+<li>Loop until the whole world is green</li>
+
+</ol>
+<aside class="notes">
+<p>
+here we enrich the steps by providing ourselves with sanity checks that we make sure we know how the system works -- like Descartes suggested
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-org0829e93">
+<h2 id="org0829e93">Connecting the dots</h2>
+<ol>
+<li>set our goal</li>
+<li>decompose (factor)</li>
+<li>choose the simplest issue</li>
+<li>review frequently enough to retain the whole argument</li>
+
+</ol>
+</section>
+<section id="slide-org0220931">
+<h3 id="org0220931">1. set our goal</h3>
+<ol>
+<li>Think of the feature you want</li>
+<li>Write a test representing the feature</li>
+
+</ol>
+</section>
+<section id="slide-orgd63f9a4">
+<h3 id="orgd63f9a4">decompose &amp; choose simplest issue</h3>
+<ol>
+<li>Write a failing test for a small part of the feature</li>
+
+</ol>
+</section>
+<section id="slide-org46992d9">
+<h3 id="org46992d9">review frequently enough to retain the whole argument</h3>
+<ol>
+<li>Make it pass</li>
+<li>Optionally, refactor</li>
+
+</ol>
+<aside class="notes">
+<p>
+and we continue doing this until the top-level test passes
+</p>
+
+</aside>
+</section>
+<section id="slide-org081d950">
+<h3 id="org081d950">And on and on we go</h3>
+</section>
+</section>
+<section>
+<section id="slide-orgb476dee">
+<h2 id="orgb476dee">Decompose the problem, think about the implementation</h2>
+<div class="outline-text-2" id="text-orgb476dee">
+</div>
+</section>
+<section id="slide-org72bf8cd">
+<h3 id="org72bf8cd">Desired behavior</h3>
+<div class="org-src-container">
+
+<pre  class="src src-ruby"><code trim><span style="color: #3a5ca6;">def</span> <span style="color: #f2650d;">test_same_modality</span>
+  one_mod = [<span style="color: #58a329;">"CR"</span>, <span style="color: #58a329;">"CR"</span>]
+  two_mods = [<span style="color: #58a329;">"CR"</span>, <span style="color: #58a329;">"CT"</span>]
+  assert same_modality?(one_mod)
+  refute same_modality?(two_mods)
+<span style="color: #3a5ca6;">end</span>
+</code></pre>
+</div>
+</section>
+<section id="slide-org1111356">
+<h3 id="org1111356">Years ago I wrote this</h3>
+<div class="org-src-container">
+
+<pre  class="src src-ruby"><code trim><span style="color: #3a5ca6;">def</span> <span style="color: #f2650d;">same_modality?</span>(documents)
+  modalities = []
+  documents.each <span style="color: #3a5ca6;">do</span> |document|
+    <span style="color: #3a5ca6;">unless</span> modalities.include?(document.modality)
+      modalities &lt;&lt; document.modality
+    <span style="color: #3a5ca6;">end</span>
+  <span style="color: #3a5ca6;">end</span>
+  modalities.size == 1
+<span style="color: #3a5ca6;">end</span>
+</code></pre>
+</div>
+</section>
+<section id="slide-org2b60730">
+<h3 id="org2b60730">A year and a half later, I changed it to this</h3>
+<div class="org-src-container">
+
+<pre  class="src src-ruby"><code trim>documents.map(&amp;<span style="color: #074e8d;">:modality</span>).uniq.size == 1
+</code></pre>
+</div>
+<aside class="notes">
+<p>
+Knowing the tools at hand allowed me to recognize the problem as one that an existing tool solved
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-orgc1171fd">
+<h2 id="orgc1171fd">Conclusion</h2>
+<p>
+Descartes invented TDD
+</p>
+<img class="stretch" src="descartes.jpg">
+</section>
+</section>
+<section>
+<section id="slide-org5c2c756">
+<h2 id="org5c2c756">Resources</h2>
+<ul>
+<li>exercism (lightweight: tests already exist)</li>
+<li><a href="http://ruby-challenge.rubylearning.com/">ruby learning</a></li>
+<li><a href="http://makingcodespeak.com/2014/04/18/tiny-projects.html">Moss' tiny projects blog entry</a></li>
+
+</ul>
+
+<aside class="notes">
+<p>
+if you want to practice making decisions, here are some good resources to use
+</p>
+
+<p>
+ruby learning: (lightish weight, self-contained, some have a test suite, some don't)
+</p>
+
+<p>
+tiny projects: (lots of ideas for self-contained projects) (try robotfindskitten!)
+</p>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-org270dad9">
+<h2 id="org270dad9">Q&amp;A</h2>
+<p>
+Aldric Giacomoni
+</p>
+
+<p>
+<code>@trevoke</code>
+</p>
+
+<p>
+Wake up your neighbor
+</p>
+
+<p>
+Send flames to <code>/dev/null</code>
+</p>
+
+<aside class="notes">
+<p>
+thanks for listening!
+</p>
+
+<p>
+questions?
+</p>
+
+</aside>
 </section>
 </section>
 </div>

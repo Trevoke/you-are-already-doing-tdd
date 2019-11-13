@@ -4,35 +4,38 @@
 #+REVEAL_ROOT: ./reveal.js-3.8.0
 
 * You're already doing TDD
-* Decision-making
-* Make better decisions
-** Years ago I wrote this
-#+begin_src ruby
-  def same_modality?(documents)
-    modalities = []
-    documents.each do |document|
-      unless modalities.include?(document.modality)
-        modalities << document.modality
-      end
-    end
-    modalities.size == 1
-  end
-#+end_src
-** A year and a half later, I changed it to this
-#+begin_src ruby
-  documents.map(&:modality).uniq.size == 1
-#+end_src
+Test-Driven Development
+
 #+begin_notes
-Knowing the tools at hand allowed me to recognize the problem as one that an existing tool solved
+Let me tell you about Test-Driven Design
+#+end_notes
+* Decision-making
+#+begin_notes
+As programmers, our job is to make a lot of decisions.
+
+Decisions of what code to write and what code not to write
+
+Decisions of how to write the code
 #+end_notes
 * Big decisions are combinations of small decisions
+* Don't take my word for it
+- Descartes
+- Fermi
+
+#+begin_notes
+Descartes said "I think therefore I am" and he made, you know, cartesian coordinates?
+
+Fermi was the creator of the world's first nuclear reactor
+#+end_notes
 * Cartesian method
 1. Accept as true only what is indubitable.
 2. Divide every question into manageable parts.
 3. Begin with the simplest issues and ascend to the more complex.
 4. Review frequently enough to retain the whole argument at once.
 #+begin_notes
-His reductive method also impoverished these domains in important ways, for it tended to restrict geometry to the study of straight line segments, physics to the study of ambiguously constituted bits of matter in motion,
+Descartes made significant strides in mathematics, and physics by relating certain complex items and problems back to more simple elements that served as starting points for his inquiries.
+
+His reductive method also impoverished these domains in important ways, for it tended to restrict geometry to the study of straight line segments, and physics to the study of ambiguously constituted bits of matter in motion,
 #+end_notes
 * Fermi questions
 break a big measurement into smaller estimatable measurements
@@ -80,10 +83,18 @@ Number of pianos divided by number of tunings in a year
 #+begin_notes
 In 2009, the actual number of piano tuners in Chicago is about 290
 #+end_notes
-* Decompose
+* Decomposing
+Good enough for Descartes
+
+Good enough for Fermi
+#+begin_notes
 A big problem is a combination of small problems
+#+end_notes
 * In programming
-decomposition is called factoring
+decomposition is called *factoring*
+#+begin_notes
+I learned this while preparing this talk.
+#+end_notes
 * Refactoring
 Yep. re-factoring.
 #+begin_notes
@@ -91,3 +102,100 @@ So when you change the bits of the system, you change the way it's decomposed!
 #+end_notes
 * Okay okay, TDD
 Real talk now (wake up your neighbor)
+* Usual steps of TDD
+1. Write a failing test
+2. Make it pass
+3. Refactor
+4. Continue
+
+#+begin_notes
+we can do better than this
+#+end_notes
+* Steps of Test-Driven Design
+1. Define non-existent behavior
+2. Write test
+3. Consider how much you like the code you just wrote
+4. Think of how it will fail
+5. Run it, verify your hypothesis
+6. Implement just enough to make it pass
+7. Refactor as desired
+8. Loop until the whole world is green
+#+begin_notes
+here we enrich the steps by providing ourselves with sanity checks that we make sure we know how the system works -- like Descartes suggested
+#+end_notes
+* Connecting the dots
+1. set our goal
+2. decompose (factor)
+3. choose the simplest issue
+4. review frequently enough to retain the whole argument
+** 1. set our goal
+1. Think of the feature you want
+2. Write a test representing the feature
+** decompose & choose simplest issue
+1. Write a failing test for a small part of the feature
+** review frequently enough to retain the whole argument
+2. Make it pass
+3. Optionally, refactor
+#+begin_notes
+and we continue doing this until the top-level test passes
+#+end_notes
+** And on and on we go
+* Decompose the problem, think about the implementation
+** Desired behavior
+#+begin_src ruby
+  def test_same_modality
+    one_mod = ["CR", "CR"]
+    two_mods = ["CR", "CT"]
+    assert same_modality?(one_mod)
+    refute same_modality?(two_mods)
+  end
+#+end_src
+** Years ago I wrote this
+#+begin_src ruby
+  def same_modality?(documents)
+    modalities = []
+    documents.each do |document|
+      unless modalities.include?(document.modality)
+        modalities << document.modality
+      end
+    end
+    modalities.size == 1
+  end
+#+end_src
+** A year and a half later, I changed it to this
+#+begin_src ruby
+  documents.map(&:modality).uniq.size == 1
+#+end_src
+#+begin_notes
+Knowing the tools at hand allowed me to recognize the problem as one that an existing tool solved
+#+end_notes
+* Conclusion
+Descartes invented TDD
+#+REVEAL_HTML: <img class="stretch" src="descartes.jpg">
+* Resources
+- exercism (lightweight: tests already exist)
+- [[http://ruby-challenge.rubylearning.com/][ruby learning]]
+- [[http://makingcodespeak.com/2014/04/18/tiny-projects.html][Moss' tiny projects blog entry]]
+
+#+begin_notes
+if you want to practice making decisions, here are some good resources to use
+
+ruby learning: (lightish weight, self-contained, some have a test suite, some don't)
+
+tiny projects: (lots of ideas for self-contained projects) (try robotfindskitten!)
+#+end_notes
+
+* Q&A
+Aldric Giacomoni
+
+~@trevoke~
+
+Wake up your neighbor
+
+Send flames to ~/dev/null~
+
+#+begin_notes
+thanks for listening!
+
+questions?
+#+end_notes
